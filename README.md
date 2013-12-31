@@ -22,8 +22,12 @@ Or install it yourself as:
 	base_hash = { username: 'foo', password: 'bar', platform: 'www.cantook.net', organisation_id: 123, sale_state: 'test', format: 'epub', isbn: '123456789asdf' }
 	simulate_hash = { cost: '999', protection: 'acs4', country: nil }
 	cantook = Cantook::SimulateASale.new(base_hash)		
-	result = cantook.simulate_a_sale(simulate_hash) 
-	puts result => true / false
+	
+	if cantook.simulate_a_sale(simulate_hash) 
+		puts "success"
+	else
+		puts "failure"
+	end
 
 ### Sale of a publication
 	base_hash = { username: 'foo', password: 'bar', platform: 'www.cantook.net', organisation_id: 123, sale_state 'test', format: 'epub', isbn: '123456789asdf' }
