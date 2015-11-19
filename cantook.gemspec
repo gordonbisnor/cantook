@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "cantook"
-  spec.version       = "0.0.1"
+  spec.version       = Cantook::VERSION
   spec.authors       = ["Gordon B. Isnor"]
   spec.email         = ["gordonbisnor@gmail.com"]
   spec.description   = %q{Cantook gem}

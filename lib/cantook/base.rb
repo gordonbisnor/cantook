@@ -22,6 +22,7 @@ module Cantook
 			:isbn,
 			:format,
 			:response,
+			:query,
 			:sale_state
 
 		# @param [Hash] params
@@ -52,13 +53,15 @@ module Cantook
 
 		# @param [Hash] options
 		def get_request options
-			HTTParty.get(request_url, query: options.merge(base_options), basic_auth: auth)
+			self.query = options.merge(base_options)
+			HTTParty.get(request_url, query: query, basic_auth: auth)
 		end
 		private :get_request
 
 		# @param [Hash] options
 		def post_request options
-			HTTParty.post(request_url, query: options.merge(base_options), basic_auth: auth)
+			self.query = options.merge(base_options)
+			HTTParty.post(request_url, query: query, basic_auth: auth)
 		end
 		private :post_request
 
@@ -71,7 +74,5 @@ module Cantook
 		def response_hash
 			response.parsed_response.deep_symbolize_keys!
 		end
-
-	end
 
 end
