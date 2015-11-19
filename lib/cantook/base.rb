@@ -75,4 +75,6 @@ module Cantook
 			response.parsed_response.deep_symbolize_keys!
 		end
 
+	end
+
 end
