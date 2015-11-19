@@ -18,7 +18,7 @@ module Cantook
 		# transaction_id			Yes				The transaction / purchase basket's unique ID number. Multiple sales can be added to a basket, as long as they have the same unique ID number and are related to a single user. Alphanumerical characters only ("-" and "_" also accepted).
 		# credit_card_prefix	No				4 first numbers of the credit card number used for payment. It allows the publisher to check if the territory constraints (determined by these 4 first numbers) are respected.
 		# sale_state					No				The sale state. By default, a sale is always in "active" state, but it is possible to specify that the sale must be in "test" state using this parameter. Possible values: active / test
-		# country							No				The country which will be considered to validate the price of the publication. Value by default: the country of your organization. ISO 3166-1 Alpha-3 (can, fra, ita) format.
+		# country							Yes				The country which will be considered to validate the price of the publication. 
 		# aggregator					No				When a parent store makes a sale for one of it's child store, this field represents the ID of the parent store.
 		# uname								No				First and last name of the user. The value of this parameter will appear in the text of the digital watermark that will be placed on the file. When this parameter is provided on Sale API call, the watermarking delay will be shortened on the download request (the download will begin as soon as the user clicks on the download button instead of waiting for the platform to generate the watermarked copy).
 

@@ -14,7 +14,7 @@ module Cantook
 		# Name							Mandatory		Description
 		# cost							Yes					The price of the sale in cents (e.g., $19.99 => 1999).
 		# protection				Yes					The type of protection on the sold publication (none/watermark/acs4/acs4_time_limited).
-		# country						No					The country which will be considered to validate the price of the publication. Value by default: the country of your organization. ISO 3166-1 alpha-3 (can, fra, ita) format.
+		# country						Yes					The country which will be considered to validate the price of the publication. 
 		
 		# RESPONSE CODES
 		# Code 	Content								Description

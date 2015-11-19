@@ -34,13 +34,14 @@ base_hash = {
 	organisation_id: 123, 
 	sale_state: 'test', 
 	format: 'epub', 
-	isbn: '123456789asdf' 
+	isbn: '123456789asdf',
+	currency: 'CAD'
 	}
 
 simulate_hash = { 
 	cost: '999', 
 	protection: 'acs4', 
-	country: nil 
+	country: 'CA'
 	}
 
 cantook = Cantook::SimulateASale.new(base_hash)		
@@ -62,14 +63,16 @@ base_hash = {
 	organisation_id: 123, 
 	sale_state 'test', 
 	format: 'epub', 
-	isbn: '123456789asdf' 
+	isbn: '123456789asdf',
+	currency: 'CAD'
 	}
 
 sale_hash = { 
 	cost: '999', 
 	customer_id: '123', 
 	transaction_id: 'abc', 
-	protection: 'acs4' 
+	protection: 'acs4',
+	country: 'CA' 
 	}
 
 cantook = Cantook::SaleOfAPublication.new(base_hash)

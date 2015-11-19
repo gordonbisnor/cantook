@@ -12,6 +12,7 @@ module Cantook
 		# organisation_id		Yes					Your merchant number. This number is provided upon registration.
 		# isbn							Yes					The publication's ISBN.
 		# format						Yes					The publication's format (pdf/epub/mobi).
+		# currency					Yes
 
 		attr_accessor :base_url,
 			:auth,
