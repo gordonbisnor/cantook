@@ -23,7 +23,8 @@ module Cantook
 			:format,
 			:response,
 			:query,
-			:sale_state
+			:sale_state,
+			:currency
 
 		# @param [Hash] params
 		# @option params [String] :username - your Cantook API username
@@ -33,6 +34,7 @@ module Cantook
 		# @option params [String] :isbn - ISBN of the publication you are selling
 		# @option params [String] :format - format of the publication being sold, eg 'epub' or 'mobi'
 		# @option params [String] :sale_state - use 'test' for test/development, nil for production (real sales)
+		# @option params [String] :currency - 3-letter ISO-4217 code
 		def initialize(params = {})
 			@username = params[:username]
 			@password = params[:password]
@@ -41,13 +43,14 @@ module Cantook
 			@isbn = params[:isbn]
 			@format = params[:format]
 			@sale_state = params[:sale_state]
+			@currency = params[:isbn]
 			@base_url = "https://#{platform}/api/organisations/#{organisation_id}"
 			@auth = { username: username, password: password }
 		end
 
 		# @return [Hash] A basic hash of options common to all Cantook requests
 		def base_options
-			{ format: format, isbn: isbn, sale_state: sale_state }
+			{ format: format, isbn: isbn, sale_state: sale_state, currency: currency }
 		end
 		private :base_options
 
