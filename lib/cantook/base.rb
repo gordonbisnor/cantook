@@ -12,6 +12,8 @@ module Cantook
 		# organisation_id		Yes					Your merchant number. This number is provided upon registration.
 		# isbn							Yes					The publication's ISBN.
 		# format						Yes					The publication's format (pdf/epub/mobi).
+		# currency					Yes					
+		# country						Yes					
 
 		attr_accessor :base_url,
 			:auth,
@@ -36,6 +38,7 @@ module Cantook
 		# @option params [String] :format - format of the publication being sold, eg 'epub' or 'mobi'
 		# @option params [String] :sale_state - use 'test' for test/development, nil for production (real sales)
 		# @option params [String] :currency - 3-letter ISO-4217 code
+		# @option params [String] :counrtry - ISO 3166-1 Alpha-3 (can, fra, ita) or Alpha-2 (CA, FR, IT) formats.
 		def initialize(params = {})
 			@username = params[:username]
 			@password = params[:password]
@@ -52,13 +55,16 @@ module Cantook
 
 		# @return [Hash] A basic hash of options common to all Cantook requests
 		def base_options
+			Rails.logger.info "COUNTRY: #{country}, SELF COUNTRY #{self.country}"
 			{ format: format, isbn: isbn, sale_state: sale_state, currency: currency, country: country }
 		end
 		private :base_options
 
 		# @param [Hash] options
 		def get_request options
+			Rails.logger.info "BASE OPTIONS: #{base_options.inspect}"
 			self.query = options.merge(base_options)
+			Rails.logger.info "self query: #{self.query.inspect}"
 			HTTParty.get(request_url, query: query, basic_auth: auth)
 		end
 		private :get_request
