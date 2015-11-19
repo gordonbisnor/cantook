@@ -44,7 +44,7 @@ module Cantook
 			@isbn = params[:isbn]
 			@format = params[:format]
 			@sale_state = params[:sale_state]
-			@currency = params[:isbn]
+			@currency = params[:currency]
 			@country = params[:country]
 			@base_url = "https://#{platform}/api/organisations/#{organisation_id}"
 			@auth = { username: username, password: password }
