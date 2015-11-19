@@ -24,7 +24,8 @@ module Cantook
 			:response,
 			:query,
 			:sale_state,
-			:currency
+			:currency,
+			:country
 
 		# @param [Hash] params
 		# @option params [String] :username - your Cantook API username
@@ -44,13 +45,14 @@ module Cantook
 			@format = params[:format]
 			@sale_state = params[:sale_state]
 			@currency = params[:isbn]
+			@country = params[:country]
 			@base_url = "https://#{platform}/api/organisations/#{organisation_id}"
 			@auth = { username: username, password: password }
 		end
 
 		# @return [Hash] A basic hash of options common to all Cantook requests
 		def base_options
-			{ format: format, isbn: isbn, sale_state: sale_state, currency: currency }
+			{ format: format, isbn: isbn, sale_state: sale_state, currency: currency, country: country }
 		end
 		private :base_options
 
