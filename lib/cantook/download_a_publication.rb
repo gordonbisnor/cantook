@@ -54,7 +54,6 @@ module Cantook
 		def request_url
 			base_url + "/customers/#{customer_id}/transactions/#{transaction_id}/publications/#{isbn}/download_links/#{format}"
 		end
-		private :request_url
 
 		# @return [Hash] required parameters not included in the Cantook::Base base_options hash
 		def options
