@@ -92,7 +92,6 @@ module Cantook
 		def request_url
 			base_url + "/publications/#{isbn}/sales"
 		end
-		private :request_url
 
 		# @return [Hash] required parameters not included in the Cantook::Base base_options hash
 		def options
